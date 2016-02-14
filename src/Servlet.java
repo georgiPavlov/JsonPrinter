@@ -22,7 +22,7 @@ public class Servlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String json = request.getParameter("json");
+        //String json = request.getParameter("json");
         out.println("<html><body>" + "<h1>" + "hello world" + "</h1>" + "</body></html>");
         String uglyJSONString= "{\"coord\":{\"lon\":-0.13,\"lat\":51.51},\"weather\":[{\"id\":802,\"main\":\"Clouds\"," +
                 "\"description\":\"scattered clouds\",\"icon\":\"03d\"}],\"base\":\"cmc stations\",\"main\":{" +
@@ -35,7 +35,7 @@ public class Servlet extends HttpServlet {
         JsonElement je = jp.parse(uglyJSONString);
         String prettyJsonString = gson.toJson(je);
         response.getWriter().write(prettyJsonString);
-        
+
 
 
     }
